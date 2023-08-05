@@ -1,2 +1,2 @@
 # chart-sample
-action sample with charts
+Action sample with charts
