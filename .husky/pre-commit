@@ -3,6 +3,6 @@
 
 npm install
 ncc build index.js --license licenses.txt
-git add dist/index.js
+git add .
 
 
