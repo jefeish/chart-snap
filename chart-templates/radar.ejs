@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chart.js Radar Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div style="width: 80%; margin: auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        Chart.defaults.font.size = 18;
+
+        // Chart configuration
+        const config = {
+            type: 'radar',
+            data: <%- JSON.stringify(chartData) %>,
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true
+                    }
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 28
+                        }
+                    }
+                }
+            }
+        };
+
+        // Create a new Chart instance
+        const myChart = new Chart(document.getElementById('myChart'), config);
+    </script>
+</body>
+
+</html>

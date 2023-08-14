@@ -7,11 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: jefeish/chart-sample@v0.3
+      - name: 'Image capture'
+        id: snapshot
+        uses: jefeish/chart-snap@v0.3
         with:
-          who-to-greet: 'Mona the Octocat'
+          image-location: 'docs/images'
+          image-width: 800
+          image-height: 700
+
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
