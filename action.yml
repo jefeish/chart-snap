@@ -1,6 +1,9 @@
 name: 'Chart-Sample'
 description: 'create an image of a chart.js graph'
 inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
   image-location:  
     description: 'Where to save the image'
     required: false
