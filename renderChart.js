@@ -1,3 +1,9 @@
+// Import required modules
+const puppeteer = require('puppeteer')
+const path = require('path')
+const ejs = require('ejs')
+const fs = require('fs')
+
 /**
  * @description This module uses Puppeteer to render a chart using Chart.js 
  *              and save it as a PNG image.
@@ -12,12 +18,7 @@
  * 
  */
 
-import puppeteer from 'puppeteer'
-import path from 'path'
-import ejs from 'ejs'
-import fs from 'fs'
-
-export default async function renderChart(chartType, chartData, imageOutputLocation, chartWidth, chartHeight) {
+async function renderChart(chartType, chartData, imageOutputLocation, chartWidth, chartHeight) {
   const browser = await puppeteer.launch({ headless: "new" })
   const page = await browser.newPage()
 
@@ -28,7 +29,7 @@ export default async function renderChart(chartType, chartData, imageOutputLocat
     deviceScaleFactor: 4, // Adjust as needed
   })
 
-  const imagePath = path.join(new URL('.', import.meta.url).pathname, imageOutputLocation)
+  const imagePath = path.join(__dirname, imageOutputLocation)
   const chartName = chartType // chartName is used as the filename
 
   // check if the chart type is chartSupported
@@ -47,7 +48,7 @@ export default async function renderChart(chartType, chartData, imageOutputLocat
 
   if (chartSupported) {
     // Read the EJS template file
-    const templatesDirectory = path.join(new URL('.', import.meta.url).pathname, 'chart-templates/')
+    const templatesDirectory = path.join(__dirname, 'chart-templates/')
     const templatePath = path.join(templatesDirectory, chartType + '.ejs')
     const templateContent = fs.readFileSync(templatePath, 'utf8')
 
@@ -67,3 +68,5 @@ export default async function renderChart(chartType, chartData, imageOutputLocat
 
   await browser.close()
 }
+
+module.exports = { renderChart };
