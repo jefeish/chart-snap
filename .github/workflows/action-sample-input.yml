@@ -5,22 +5,22 @@ on:
     inputs:
       image-width:
         type: string
-        description: template (.github/PROJECT_TEMPLATES/)
+        description: 'The width of the generated image'
         required: true
       image-height:
         type: string
-        description: template (.github/PROJECT_TEMPLATES/)
+        description: 'The height of the generated image'
         required: true
   workflow_dispatch:
     inputs:
       image-width:
         type: string
-        description: template (.github/PROJECT_TEMPLATES/)
+        description: 'The width of the generated image'
         required: false
         default: 800
       image-height:
         type: string
-        description: template (.github/PROJECT_TEMPLATES/)
+        description: 'The height of the generated image'
         required: false
         default: 600
 
