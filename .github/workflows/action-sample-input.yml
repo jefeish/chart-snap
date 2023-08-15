@@ -1,11 +1,28 @@
 
 on:
-  workflow_dispatch:
+  issue_comment:
+    types: [created, deleted]
     inputs:
-      graph:
+      image-width:
         type: string
         description: template (.github/PROJECT_TEMPLATES/)
         required: true
+      image-height:
+        type: string
+        description: template (.github/PROJECT_TEMPLATES/)
+        required: true
+  workflow_dispatch:
+    inputs:
+      image-width:
+        type: string
+        description: template (.github/PROJECT_TEMPLATES/)
+        required: false
+        default: 800
+      image-height:
+        type: string
+        description: template (.github/PROJECT_TEMPLATES/)
+        required: false
+        default: 600
 
 jobs:
   test:
