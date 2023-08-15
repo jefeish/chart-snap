@@ -11,10 +11,12 @@ on:
         type: string
         description: 'The width of the generated image'
         required: true
+        default: 800
       image-height:
         type: string
         description: 'The height of the generated image'
         required: true
+        default: 600
   workflow_dispatch:
     inputs:
       image-location:  
@@ -41,4 +43,6 @@ jobs:
       - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          templateName: ${{ github.event.inputs.template }}
+          image-location: ${{ github.event.inputs.image-location }}
+          image-width: ${{ github.event.inputs.image-width }}
+          image-height: ${{ github.event.inputs.image-height }}

@@ -37,7 +37,7 @@ async function exec() {
           borderWidth: 1
         )`;
   
-    const token = process.env.GITHUB_TOKEN;
+    const token = core.getInput("GITHUB_TOKEN");
     console.log(token);
     const octokit = github.getOctokit(token);
     const context = github.context;
@@ -53,7 +53,7 @@ async function exec() {
     const chartType = chartSnap.chartType;
     const chartData = chartSnap.chartData;
 
-    const imageOutputLocation = core.getInput("image-location");
+    const imageOutputLocation = core.getInput("image-location") || 'images';
     chartWidth = core.getInput("image-width") || 700;
     chartHeight = core.getInput("image-height") || 800;
 
