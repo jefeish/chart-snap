@@ -3,6 +3,10 @@ on:
   issue_comment:
     types: [created, deleted]
     inputs:
+      image-location:  
+        description: 'Where to save the generated image'
+        required: false
+        default: 'images'
       image-width:
         type: string
         description: 'The width of the generated image'
@@ -13,6 +17,10 @@ on:
         required: true
   workflow_dispatch:
     inputs:
+      image-location:  
+        description: 'Where to save the generated image'
+        required: false
+        default: 'images'
       image-width:
         type: string
         description: 'The width of the generated image'
