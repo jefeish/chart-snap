@@ -37,7 +37,8 @@ async function exec() {
           borderWidth: 1
         )`;
   
-    const token = core.getInput("GITHUB_TOKEN");
+    const token = process.env.GITHUB_TOKEN;
+    console.log(token);
     const octokit = github.getOctokit(token);
     const context = github.context;
 
