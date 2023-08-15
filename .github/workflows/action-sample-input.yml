@@ -34,21 +34,3 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           templateName: ${{ github.event.inputs.template }}
-
-# Sample data:
-#  {
-#   labels: ['Math', 'Science', 'History', 'English', 'Art', 'Music', 'Sports'],
-#   datasets: [{
-#     label: 'Student Skills',
-#     data: [80, 70, 60, 85, 45, 30, 75],
-#     backgroundColor: 'rgba(75, 192, 192, 0.2)',
-#     borderColor: 'rgba(75, 192, 192, 1)',
-#     borderWidth: 1
-#   },{
-#     label: 'Student Goals',
-#     data: [110, 40, 60, 25, 65, 23, 45],
-#     backgroundColor: '#ff0000',
-#     borderColor: 'rgba(75, 192, 192, 1)',
-#     borderWidth: 1
-#   }]
-# } 
