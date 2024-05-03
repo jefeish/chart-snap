@@ -70,7 +70,7 @@ const data = {
 }
 ```
 
-![bar](images/bar.png)
+![bar](bar.png)
 
 ---
 
@@ -98,6 +98,6 @@ const data = {
 }
 ```
 
-![radar](images/radar.png)
+![radar](radar.png)
 
 ---
